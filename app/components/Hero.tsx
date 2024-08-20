@@ -19,7 +19,7 @@ const Hero = () => {
 					</p>
 					<Link
 						href={"/login"}
-						className="bg-blue-700 text-white p-4 rounded-lg mt-4 text-sm focus:outline-blue-300/30 focus:outline-2 hover:scale-[1.05] hover:translate-y-[-1.5]"
+						className="bg-blue-700 text-white p-4 rounded-lg mt-4 text-sm focus:outline-blue-300/30 focus:outline-2 hover:scale-[1.05]"
 					>
 						Get Started For Free
 					</Link>
