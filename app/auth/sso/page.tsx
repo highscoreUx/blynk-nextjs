@@ -7,8 +7,8 @@ export default function LoginPage() {
 			<div className="flex flex-col md:flex-row   gap-6 pt-10">
 				<div className="flex items-center flex-1 justify-center flex-col mx-4 md:mx-6">
 					<div className="md:w-[400px]">
-						<h2 className="text-center">Log in with Magic Link</h2>
-						<p className="mt-2 text-sm text-center">
+						<h2 className="md:text-center">Log in with Magic Link</h2>
+						<p className="mt-2 text-sm md:text-center">
 							Enter your email address to login with magic link
 						</p>
 
