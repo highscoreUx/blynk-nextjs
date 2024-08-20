@@ -4,7 +4,7 @@
 
 @layer base {
 	body {
-		@apply bg-neutral-100 text-neutral-800;
+		@apply bg-neutral-100 text-neutral-700;
 	}
 
 	h1 {
@@ -20,7 +20,7 @@
 	}
 
 	p {
-		@apply text-neutral-600;
+		@apply text-neutral-500;
 	}
 
 	button:disabled {
