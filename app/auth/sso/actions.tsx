@@ -1,19 +1,19 @@
 "use server";
 
+import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-import { createClient } from "@/utils/supabase/server";
-
-export async function login(formData: FormData) {
+export async function signInWithEmail(formData: FormData) {
 	const supabase = createClient();
 
-	const data = {
+	const { data, error } = await supabase.auth.signInWithOtp({
 		email: formData.get("email") as string,
-		password: formData.get("password") as string,
-	};
-
-	const { error } = await supabase.auth.signInWithPassword(data);
+		options: {
+			shouldCreateUser: false,
+			// emailRedirectTo: "https://example.com/welcome",
+		},
+	});
 
 	if (error) {
 		redirect("/error");

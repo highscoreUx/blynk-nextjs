@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { login } from "./actions";
+import { signup } from "./actions";
 
 export default function LoginPage() {
 	return (
@@ -7,25 +7,27 @@ export default function LoginPage() {
 			<div className="flex flex-col md:flex-row  h-screen gap-6 bg-white">
 				<div className="flex items-center flex-1 justify-center flex-col mx-4 md:mx-6">
 					<div className="md:w-[400px]">
-						<h2>Login and start sharing</h2>
+						<h2>Create your account</h2>
 						<p className="mt-2 text-sm">
-							Don't have an account?
+							Already have an account?
 							<span>
-								<Link href={"/signup"} className="font-medium text-blue-700">
+								<Link href={"/login"} className="font-medium text-blue-700">
 									{" "}
-									Sign up
+									Log in
+								</Link>
+							</span>{" "}
+							or{" "}
+							<span>
+								<Link href={"/auth/sso"} className="font-medium text-blue-700">
+									{" "}
+									Log in sso
 								</Link>
 							</span>
 						</p>
 						<button className="p-3 border text-neutral-500 rounded-lg mt-6 w-full">
 							Continue with Google
 						</button>
-						<Link
-							href={"/auth/sso"}
-							className="p-3 flex justify-center border text-neutral-500 rounded-lg mt-3 w-full"
-						>
-							Continue with single sign on
-						</Link>
+
 						<p className="relative mt-6 grid grid-cols-[1fr_0fr_1fr] gap-4 before:h-[0.01rem] before:bg-gray-300 before:my-auto after:bg-gray-300 after:h-[0.01rem] after:my-auto">
 							OR
 						</p>
@@ -53,14 +55,14 @@ export default function LoginPage() {
 								/>
 							</div>
 							<button
-								formAction={login}
+								formAction={signup}
 								className="p-3 bg-blue-700 text-white rounded-lg mt-6 w-full"
 							>
-								Log in
+								Create free account
 							</button>
 						</form>
 						<p className="mt-6 text-sm">
-							By logging in with an account, you agree to Blynk's{" "}
+							By creating an account, you agree to Blynk's{" "}
 							<span>
 								<Link href={"/termsofservice"} className="underline">
 									Terms of Service
