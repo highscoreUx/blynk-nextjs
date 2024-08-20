@@ -24,3 +24,19 @@ export async function login(formData: FormData) {
 	revalidatePath("/", "layout");
 	redirect("/");
 }
+
+export async function googleSignin() {
+	const supabase = createClient();
+
+	const { data, error } = await supabase.auth.signInWithOAuth({
+		provider: "google",
+	});
+
+	if (error) {
+		console.log(error);
+	}
+
+	if (data.url) {
+		redirect(data.url);
+	}
+}

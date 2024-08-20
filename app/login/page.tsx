@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { login } from "./actions";
+import { googleSignin, login } from "./actions";
 import { FcGoogle } from "react-icons/fc";
 
 export default function LoginPage() {
@@ -18,12 +18,18 @@ export default function LoginPage() {
 								</Link>
 							</span>
 						</p>
-						<button className="p-3 border text-neutral-500 rounded-lg mt-6 w-full flex items-center justify-center gap-2">
-							<span>
-								<FcGoogle size={20} />
-							</span>
-							Continue with Google
-						</button>
+						<form>
+							<button
+								type="submit"
+								className="p-3 border text-neutral-500 rounded-lg mt-6 w-full flex items-center justify-center gap-2"
+								formAction={googleSignin}
+							>
+								<span>
+									<FcGoogle size={20} />
+								</span>
+								Continue with Google
+							</button>
+						</form>
 						<Link
 							href={"/auth/sso"}
 							className="p-3 flex justify-center border text-neutral-500 rounded-lg mt-3 w-full"

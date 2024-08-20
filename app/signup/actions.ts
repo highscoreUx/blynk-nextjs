@@ -18,11 +18,27 @@ export async function signup(formData: FormData) {
 	const { error } = await supabase.auth.signUp(data);
 
 	if (error) {
-		// redirect("/error");
-		toast.dismiss();
-		toast(error.message);
+		redirect("/error");
+		// toast.dismiss();
+		// toast(error.message);
 	}
 
 	revalidatePath("/", "layout");
 	redirect("/");
+}
+
+export async function googleSignUp() {
+	const supabase = createClient();
+
+	const { data, error } = await supabase.auth.signInWithOAuth({
+		provider: "google",
+	});
+
+	if (error) {
+		console.log(error);
+	}
+
+	if (data.url) {
+		redirect(data.url);
+	}
 }

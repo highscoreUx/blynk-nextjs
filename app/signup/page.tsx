@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { signup } from "./actions";
+import { googleSignUp, signup } from "./actions";
 import Validator from "../components/Validator";
 import { FcGoogle } from "react-icons/fc";
 
@@ -26,12 +26,18 @@ export default function LoginPage() {
 								</Link>
 							</span>
 						</p>
-						<button className="p-3 border text-neutral-500 rounded-lg mt-6 w-full flex items-center justify-center gap-2">
-							<span>
-								<FcGoogle size={20} />
-							</span>
-							Continue with Google
-						</button>
+						<form>
+							<button
+								type="submit"
+								className="p-3 border text-neutral-500 rounded-lg mt-6 w-full flex items-center justify-center gap-2"
+								formAction={googleSignUp}
+							>
+								<span>
+									<FcGoogle size={20} />
+								</span>
+								Continue with Google
+							</button>
+						</form>
 
 						<p className="relative mt-6 grid grid-cols-[1fr_0fr_1fr] gap-4 before:h-[0.01rem] before:bg-gray-300 before:my-auto after:bg-gray-300 after:h-[0.01rem] after:my-auto">
 							OR
