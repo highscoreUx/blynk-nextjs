@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { signup } from "./actions";
+import Validator from "../components/Validator";
 
 export default function LoginPage() {
 	return (
@@ -44,7 +45,7 @@ export default function LoginPage() {
 								/>
 							</div>
 							<div className="flex flex-col items-start mt-4 gap-2">
-								<label htmlFor="password">Password:</label>
+								{/* <label htmlFor="password">Password:</label>
 								<input
 									id="password"
 									name="password"
@@ -52,7 +53,8 @@ export default function LoginPage() {
 									required
 									className="w-full text-neutral-600"
 									placeholder="Enter password"
-								/>
+								/> */}
+								<Validator />
 							</div>
 							<button
 								formAction={signup}
