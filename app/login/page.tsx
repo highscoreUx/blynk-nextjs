@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { login } from "./actions";
+import { FcGoogle } from "react-icons/fc";
 
 export default function LoginPage() {
 	return (
@@ -17,7 +18,10 @@ export default function LoginPage() {
 								</Link>
 							</span>
 						</p>
-						<button className="p-3 border text-neutral-500 rounded-lg mt-6 w-full">
+						<button className="p-3 border text-neutral-500 rounded-lg mt-6 w-full flex items-center justify-center gap-2">
+							<span>
+								<FcGoogle size={20} />
+							</span>
 							Continue with Google
 						</button>
 						<Link
