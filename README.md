@@ -2,6 +2,6 @@ Blynk is a URL shortening service that turns long links into short, shareable UR
 
 # Here are Todos's for Blynk Project
 
-[x] Update Docs and add todo
-[ ] integrate user authentication using superbase and next auth
-[ ] improve landing page
+- [x] Update Docs and add todo
+- [ ] integrate user authentication using superbase and next auth
+- [ ] improve landing page
