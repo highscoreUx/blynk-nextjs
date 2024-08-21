@@ -62,7 +62,7 @@ const InputComponnent = () => {
 					}
 				}}
 				className="p-3 bg-blue-700 text-white rounded-lg mt-6 w-full"
-				disabled={(!password && !email) || isLoading}
+				disabled={!password || !email || isLoading}
 			>
 				{isLoading ? "Logging in..." : "Log in"}
 			</button>

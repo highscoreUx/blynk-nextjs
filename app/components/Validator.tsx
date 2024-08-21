@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { signup } from "../signup/actions";
+import { signup } from "../(pages)/signup/actions";
 import toast from "react-hot-toast";
 
 const Validator = () => {

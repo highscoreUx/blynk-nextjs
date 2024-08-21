@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { googleSignUp, signup } from "./actions";
-import Validator from "../components/Validator";
+import Validator from "../../components/Validator";
 import { FcGoogle } from "react-icons/fc";
 
 export default function LoginPage() {
