@@ -105,7 +105,7 @@ const Validator = () => {
 				className="p-3 bg-blue-700 text-white rounded-lg mt-6 w-full"
 				disabled={!allValidationsPassed || isLoading}
 			>
-				{isLoading ? "Creating free account" : "Create free account"}
+				{isLoading ? "Creating free account..." : "Create free account"}
 			</button>
 		</div>
 	);

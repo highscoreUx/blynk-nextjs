@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { googleSignin, login } from "./actions";
 import { FcGoogle } from "react-icons/fc";
+import InputComponnent from "./InputComponnent";
 
 export default function LoginPage() {
 	return (
@@ -40,34 +41,7 @@ export default function LoginPage() {
 							OR
 						</p>
 						<form className="mt-6">
-							<div className="flex flex-col items-start gap-2">
-								<label htmlFor="email">Email</label>
-								<input
-									id="email"
-									name="email"
-									type="email"
-									required
-									className="w-full text-neutral-600"
-									placeholder="example@user.com"
-								/>
-							</div>
-							<div className="flex flex-col items-start mt-4 gap-2">
-								<label htmlFor="password">Password:</label>
-								<input
-									id="password"
-									name="password"
-									type="password"
-									required
-									className="w-full text-neutral-600"
-									placeholder="Enter password"
-								/>
-							</div>
-							<button
-								formAction={login}
-								className="p-3 bg-blue-700 text-white rounded-lg mt-6 w-full"
-							>
-								Log in
-							</button>
+							<InputComponnent />
 						</form>
 						<p className="mt-6 text-sm">
 							By logging in with an account, you agree to Blynk's{" "}
