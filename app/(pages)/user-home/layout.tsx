@@ -7,7 +7,7 @@ const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
 		<main className="bg-blue-50/30 min-h-screen">
 			<TopNav />
 			<Container>
-				<div className="my-10">{children}</div>
+				<div className="my-10 md:my-16">{children}</div>
 			</Container>
 		</main>
 	);
