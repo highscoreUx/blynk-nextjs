@@ -2,6 +2,11 @@ import Link from "next/link";
 import { googleSignin, login } from "./actions";
 import { FcGoogle } from "react-icons/fc";
 import InputComponnent from "./InputComponnent";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Login",
+};
 
 export default function LoginPage() {
 	return (

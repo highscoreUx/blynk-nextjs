@@ -6,7 +6,10 @@ import { Toaster } from "react-hot-toast";
 const inter = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "Blynk | Simple and Fast URL Shortening Service",
+	title: {
+		template: "%s - Blynk",
+		default: "Blynk | Simple and Fast URL Shortening Service",
+	},
 	description:
 		"Shorten and manage your URLs easily with our URL shortener. Create short, shareable links in seconds and track their performance effortlessly.",
 };
