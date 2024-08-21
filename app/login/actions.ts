@@ -16,13 +16,13 @@ export async function login(formData: FormData) {
 	const { error } = await supabase.auth.signInWithPassword(data);
 
 	if (error) {
-		redirect("/error");
-		// toast.dismiss();
-		// toast(error.message);
+		// redirect("/error");
+		return { success: false, message: error?.message };
 	}
 
 	revalidatePath("/", "layout");
 	redirect("/user-home");
+	// return { success: true, message: "Login successful" };
 }
 
 export async function googleSignin() {
