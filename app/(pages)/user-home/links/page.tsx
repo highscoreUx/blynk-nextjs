@@ -2,6 +2,7 @@ import { createClient } from "@/utils/supabase/server";
 import React from "react";
 import { FiCalendar } from "react-icons/fi";
 import LinkComponent from "./LinkComponent";
+import Link from "next/link";
 
 const supabase = createClient();
 
@@ -46,25 +47,37 @@ const links = await getLink(user!);
 const page = () => {
 	return (
 		<div className="md:w-[700px] md:mx-6 lg:mx-auto">
+			{
+				//@ts-ignore
+				links.length > 0 && (
+					<div>
+						<h2>Your Blynks</h2>
+						<p className="text-sm mt-1">Check out links you've shorten</p>
+					</div>
+				)
+			}
+
 			<div>
-				<h2>Your Blynks</h2>
-				<p className="text-sm mt-1">Check out links you've shorten</p>
+				{
+					//@ts-ignore
+					links.length > 0 ? (
+						<LinkComponent link={links as links[]} />
+					) : (
+						<div>
+							<div className="flex flex-col items-center justify-center mt-14 min-h-[30vh] gap-2">
+								<h2>You don't have any Link yet</h2>
+								<p>Please upload a link to manage your links</p>
+								<Link
+									href={"links/create"}
+									className="p-3 bg-blue-700 text-white rounded-lg mt-4"
+								>
+									Create New Link
+								</Link>
+							</div>
+						</div>
+					)
+				}
 			</div>
-			{/* <div className="flex justify-between items-center mt-4">
-				<button className="flex items-center justify-center gap-2 p-3 border bg-white rounded-lg text-sm">
-					<span>
-						<FiCalendar size={20} />
-					</span>{" "}
-					Filter by created date
-				</button>
-				<button className="flex items-center justify-center gap-2 p-3 border bg-white rounded-lg text-sm">
-					<span>
-						<FiCalendar size={20} />
-					</span>{" "}
-					Filter by created date
-				</button>
-			</div> */}
-			<div>{links && <LinkComponent link={links as links[]} />}</div>
 		</div>
 	);
 };

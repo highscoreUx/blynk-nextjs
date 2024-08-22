@@ -13,7 +13,7 @@ export const GET = async (request: NextRequest, { params }) => {
 			.eq("short", short);
 
 		if (error) {
-			return null;
+			return notFound();
 		}
 
 		return data;
@@ -22,7 +22,8 @@ export const GET = async (request: NextRequest, { params }) => {
 	const url = await geturl(params.short);
 
 	if (url?.length === 0) {
-		notFound();
+		const errorUrl = new URL("/404", request.nextUrl.origin);
+		return NextResponse.redirect(errorUrl);
 	}
 
 	//@ts-ignore
