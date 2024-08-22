@@ -43,6 +43,7 @@ const LinkComponent = ({ link }: { link: links[] }) => {
 					expire,
 					visitCount,
 				}) => {
+					const linkto = `${window.location.origin}/${short}`;
 					return (
 						<div
 							key={id}
@@ -76,7 +77,7 @@ const LinkComponent = ({ link }: { link: links[] }) => {
 											{title ? title : "Blynk Link"}
 										</div>
 										<Link
-											href={`${window.location.origin}/${short}`}
+											href={linkto}
 											target="_blank"
 											className="text-sm font-medium text-blue-600"
 										>{`${window.location.host}/${short}`}</Link>
