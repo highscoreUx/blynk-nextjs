@@ -37,8 +37,11 @@ export async function updateSession(request: NextRequest) {
 		data: { user },
 	} = await supabase.auth.getUser();
 
+	const isShortRoute = request.nextUrl.pathname.match(/^\/[a-zA-Z0-9_-]+$/);
+
 	if (
 		!user &&
+		!isShortRoute &&
 		!request.nextUrl.pathname.startsWith("/login") &&
 		!request.nextUrl.pathname.startsWith("/auth") &&
 		!request.nextUrl.pathname.startsWith("/signup") &&
