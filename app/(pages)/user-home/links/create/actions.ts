@@ -4,6 +4,7 @@ import { createClient } from "@/utils/supabase/server";
 import generateID from "@/app/services/generadeID";
 import moment from "moment";
 import { getFavicionUrl, getPageTitle } from "@/utils/supabase/getFavicon";
+import { revalidatePath } from "next/cache";
 
 export const createLink = async (formData: FormData) => {
 	const supabase = createClient();
@@ -34,5 +35,6 @@ export const createLink = async (formData: FormData) => {
 		return { success: false, message: error?.message };
 	}
 
+	revalidatePath("/user-home/link");
 	return { success: true, data, message: "Link Shortened successfully" };
 };

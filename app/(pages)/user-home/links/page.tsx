@@ -12,8 +12,9 @@ interface links {
 	short: string;
 	title: string;
 	userid: string;
-	expire: Date;
+	expire: string;
 	favicon: string;
+	visitCount: number;
 }
 
 const getUser = async () => {
@@ -49,7 +50,7 @@ const page = () => {
 				<h2>Your Blynks</h2>
 				<p className="text-sm mt-1">Check out links you've shorten</p>
 			</div>
-			<div className="flex justify-between items-center mt-4">
+			{/* <div className="flex justify-between items-center mt-4">
 				<button className="flex items-center justify-center gap-2 p-3 border bg-white rounded-lg text-sm">
 					<span>
 						<FiCalendar size={20} />
@@ -62,7 +63,7 @@ const page = () => {
 					</span>{" "}
 					Filter by created date
 				</button>
-			</div>
+			</div> */}
 			<div>{links && <LinkComponent link={links as links[]} />}</div>
 		</div>
 	);
