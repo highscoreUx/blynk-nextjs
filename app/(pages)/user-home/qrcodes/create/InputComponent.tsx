@@ -37,6 +37,7 @@ interface QRCodeProps {
 const InputComponent = () => {
 	const [title, setTitle] = useState("");
 	const [redirectUrl, setRedirectUrl] = useState("");
+	const [isValidUrl, setIsValidUrl] = useState(false);
 	const [isLoading, setisLoading] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [qrprops, setQrProps] = useState<QRCodeProps>({
@@ -59,6 +60,7 @@ const InputComponent = () => {
 						value={redirectUrl}
 						onChange={(e) => {
 							setRedirectUrl(e.currentTarget.value);
+							setIsValidUrl(validateUrl(e.currentTarget.value));
 						}}
 						id="redirectUrl"
 						placeholder="https://example.com/my-long-url"
@@ -111,7 +113,7 @@ const InputComponent = () => {
 						{currentPage === 1 ? (
 							<button
 								className="text-sm bg-blue-700 text-white"
-								disabled={!redirectUrl}
+								disabled={!isValidUrl}
 								type="submit"
 								onClick={(e) => {
 									e.preventDefault();
@@ -306,6 +308,11 @@ const InputComponent = () => {
 				</div>
 			</div>
 		);
+	};
+
+	const validateUrl = (url: string) => {
+		const pattern = new RegExp("https?://[\\w\\-._~:/?#[\\]@!$&'()*+,;=]+");
+		return pattern.test(url);
 	};
 
 	return (
