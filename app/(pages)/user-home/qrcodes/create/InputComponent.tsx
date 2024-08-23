@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { createLink } from "./actions";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -61,6 +61,7 @@ const InputComponent = () => {
 						onChange={(e) => {
 							setRedirectUrl(e.currentTarget.value);
 							setIsValidUrl(validateUrl(e.currentTarget.value));
+							setQrProps({ ...qrprops, value: e.currentTarget.value });
 						}}
 						id="redirectUrl"
 						placeholder="https://example.com/my-long-url"
@@ -125,8 +126,31 @@ const InputComponent = () => {
 						) : (
 							<button
 								className="text-sm bg-blue-700 text-white"
-								disabled={!redirectUrl}
 								type="submit"
+								onClick={async (e) => {
+									e.preventDefault();
+									const formData = new FormData();
+									formData.append("title", title);
+									formData.append("redirectUrl", redirectUrl);
+									formData.append("qrcode", JSON.stringify(qrprops));
+									setisLoading(true);
+									try {
+										const { message, success } = await createLink(formData);
+										if (!success) {
+											toast.dismiss();
+											toast.error(message);
+										} else {
+											toast.dismiss();
+											toast(message);
+											setTitle("");
+											setRedirectUrl("");
+											router.push("/user-home/links");
+										}
+									} catch (error) {
+									} finally {
+										setisLoading(false);
+									}
+								}}
 							>
 								Submit
 							</button>
@@ -139,7 +163,7 @@ const InputComponent = () => {
 
 	const qRConfig = () => {
 		return (
-			<div className="flex items-start">
+			<div className="flex items-start gap-8">
 				<div className="flex-1">
 					<div>
 						<h3>Patterns</h3>
@@ -299,11 +323,37 @@ const InputComponent = () => {
 					{/* qr */}
 					<div className="sticky top-0">
 						<QRCode
+							id="qrForDownload"
 							value={qrprops.value}
 							size={qrprops.size}
 							level={qrprops.level}
 							bgColor={qrprops.bgColor}
 						></QRCode>
+						{/* <button
+							type="button"
+							className="p-3 w-full bg-blue-700 text-white mt-4 rounded-md"
+							onClick={(e) => {
+								e.preventDefault();
+								const svg = document.getElementById("qrForDownload");
+								const svgData = new XMLSerializer().serializeToString(svg!);
+								const canvas = document.createElement("canvas");
+								const ctx = canvas.getContext("2d");
+								const img = new Image();
+								img.onload = () => {
+									canvas.width = img.width;
+									canvas.height = img.height;
+									ctx?.drawImage(img, 0, 0);
+									const pngFile = canvas.toDataURL("image/png");
+									const downloadLink = document.createElement("a");
+									downloadLink.download = "QRCode";
+									downloadLink.href = `${pngFile}`;
+									downloadLink.click();
+								};
+								img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
+							}}
+						>
+							Download QR Code
+						</button> */}
 					</div>
 				</div>
 			</div>

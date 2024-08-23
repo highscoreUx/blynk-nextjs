@@ -22,6 +22,8 @@ export const createLink = async (formData: FormData) => {
 
 	const datum = {
 		title: formData.get("title") ? formData.get("title") : fetchedtitle,
+		qrcode:
+			formData.get("qrcode") && JSON.parse(formData.get("qrcode") as string),
 		redirectUrl: formData.get("redirectUrl"),
 		short: id,
 		userid: user?.id,
@@ -35,6 +37,6 @@ export const createLink = async (formData: FormData) => {
 		return { success: false, message: error?.message };
 	}
 
-	revalidatePath("/user-home/link");
-	return { success: true, data, message: "Link Shortened successfully" };
+	revalidatePath("/user-home/qrcodes");
+	return { success: true, data, message: "QR code successfully" };
 };
