@@ -11,8 +11,8 @@ export const links = [
 		path: "/user-home/qrcodes",
 		label: "Qr Codes",
 	},
-	{
-		path: "/user-home/analytics",
-		label: "Analytics",
-	},
+	// {
+	// 	path: "/user-home/analytics",
+	// 	label: "Analytics",
+	// },
 ];

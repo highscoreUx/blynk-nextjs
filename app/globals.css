@@ -4,7 +4,7 @@
 
 @layer base {
 	body {
-		@apply bg-neutral-100 text-neutral-700;
+		@apply bg-blue-50/30 text-neutral-700;
 	}
 
 	h1 {
