@@ -9,8 +9,8 @@ const Hero = () => {
 				className="flex flex-col gap-6 [&>*]:flex-1 md:flex-row items-center"
 				id="hero"
 			>
-				<div className="flex flex-col gap-2 items-start">
-					<h1 className="tracking-tight">
+				<div className="flex flex-col gap-2 items-center justify-center">
+					<h1 className="tracking-tight text-center">
 						Blynk Your Links <br /> in a Flash!
 					</h1>
 					<p className="text-[1.15rem] leading-relaxed mt-4">
@@ -23,9 +23,6 @@ const Hero = () => {
 					>
 						Get Started For Free
 					</Link>
-				</div>
-				<div className="w-full">
-					<HeroImage />
 				</div>
 			</div>
 		</Container>

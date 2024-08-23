@@ -47,7 +47,7 @@ const links = await getLink(user!);
 
 const page = () => {
 	return (
-		<div className="md:w-[700px] md:mx-6 lg:mx-auto w-full">
+		<div className="lg:w-[700px] md:mx-6 mx-4 lg:mx-auto">
 			{
 				//@ts-ignore
 				links.length > 0 && (

@@ -4,7 +4,7 @@ import { IoLink, IoQrCode } from "react-icons/io5";
 
 const page = () => {
 	return (
-		<div className="md:w-[700px] md:mx-6 lg:mx-auto ">
+		<div className="lg:w-[700px] md:mx-6 lg:mx-auto ">
 			<div>
 				<h2>Welcome</h2>
 				<p className="text-sm mt-1">What would you like to today?</p>
