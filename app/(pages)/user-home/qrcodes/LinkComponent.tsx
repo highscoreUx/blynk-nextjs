@@ -10,9 +10,12 @@ import {
 	IoCalendarClearOutline,
 	IoClose,
 	IoCopyOutline,
+	IoDownload,
+	IoDownloadOutline,
 	IoShareSocialOutline,
 } from "react-icons/io5";
 import { MdBarChart, MdOutlineEdit } from "react-icons/md";
+import QRCode from "react-qr-code";
 import {
 	EmailIcon,
 	EmailShareButton,
@@ -38,6 +41,11 @@ interface links {
 	expire: string;
 	favicon: string;
 	visitCount: number;
+	qrcode: {
+		value: string;
+		level: string;
+		bgColor: string;
+	};
 }
 
 const LinkComponent = ({ link }: { link: links[] }) => {
@@ -56,7 +64,7 @@ const LinkComponent = ({ link }: { link: links[] }) => {
 					title,
 					redirectUrl,
 					created_at,
-					favicon,
+					qrcode,
 					expire,
 					visitCount,
 				}) => {
@@ -66,38 +74,22 @@ const LinkComponent = ({ link }: { link: links[] }) => {
 							key={id}
 							className="bg-white p-6 rounded-lg flex flex-col md:flex-row items-start justify-between md:gap-2 gap-4"
 						>
-							<div className="flex gap-4 items-top">
-								{/* <div className="hidden md:block">
-									<input
-										type="checkbox"
-										name="check"
-										id="check"
-										title="selected"
-									/>
-								</div> */}
-								<div className="hidden md:block">
-									{favicon && (
-										<div className="p-2 border rounded-full">
-											<img
-												src={favicon}
-												alt={redirectUrl}
-												height={16}
-												width={16}
-												className="object-cover"
-											/>
-										</div>
-									)}
+							<div className="flex gap-4 flex-col md:flex-row items-top">
+								<div className="h-full">
+									<QRCode
+										id={`qrForDownload-${id}`}
+										value={qrcode.value}
+										level={qrcode.level}
+										bgColor={qrcode.bgColor}
+										className="w-[110px] h-full"
+									></QRCode>
 								</div>
 								<div className="flex flex-col gap-4">
 									<div className="flex flex-col gap-1">
 										<div className="font-bold text-[1.125rem]">
 											{title ? title : "Blynk Link"}
 										</div>
-										<Link
-											href={linkto}
-											target="_blank"
-											className="text-sm font-medium text-blue-600"
-										>{`${window.location.host}/${short}`}</Link>
+
 										<Link
 											href={redirectUrl}
 											target="_blank"
@@ -125,18 +117,30 @@ const LinkComponent = ({ link }: { link: links[] }) => {
 							<div className="flex gap-2">
 								<button
 									type="button"
-									title="copy"
-									className="p-2 bg-gray-200 rounded-lg"
-									onClick={() => {
-										navigator.clipboard.writeText(
-											`${window.location.origin}/${short}`
-										);
-										toast.dismiss();
-										toast.success("Copied!");
+									title="download"
+									className="p-2 border rounded-lg"
+									onClick={(e) => {
+										e.preventDefault();
+										const svg = document.getElementById(`qrForDownload-${id}`);
+										const svgData = new XMLSerializer().serializeToString(svg!);
+										const canvas = document.createElement("canvas");
+										const ctx = canvas.getContext("2d");
+										const img = new Image();
+										img.onload = () => {
+											canvas.width = img.width;
+											canvas.height = img.height;
+											ctx?.drawImage(img, 0, 0);
+											const pngFile = canvas.toDataURL("image/png");
+											const downloadLink = document.createElement("a");
+											downloadLink.download = "QRCode";
+											downloadLink.href = `${pngFile}`;
+											downloadLink.click();
+										};
+										img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
 									}}
 								>
 									<span className="text-sm leading-none flex gap-2 items-center ">
-										<IoCopyOutline />
+										<IoDownloadOutline size={16} />
 									</span>
 								</button>
 								<button

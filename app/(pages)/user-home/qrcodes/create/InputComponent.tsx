@@ -163,7 +163,7 @@ const InputComponent = () => {
 
 	const qRConfig = () => {
 		return (
-			<div className="flex items-start gap-8">
+			<div className="flex items-start gap-8 flex-col-reverse md:flex-row">
 				<div className="flex-1">
 					<div>
 						<h3>Patterns</h3>
