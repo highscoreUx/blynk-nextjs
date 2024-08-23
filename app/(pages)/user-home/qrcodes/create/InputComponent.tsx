@@ -57,6 +57,7 @@ const InputComponent = () => {
 					<input
 						type="url"
 						name="redirectUrl"
+						autoComplete="off"
 						value={redirectUrl}
 						onChange={(e) => {
 							setRedirectUrl(e.currentTarget.value);
@@ -77,6 +78,7 @@ const InputComponent = () => {
 						name="title"
 						id="title"
 						title="title"
+						autoComplete="off"
 						value={title}
 						onChange={(e) => {
 							setTitle(e.currentTarget.value);
