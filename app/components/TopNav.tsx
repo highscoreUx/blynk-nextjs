@@ -6,6 +6,8 @@ import { links } from "../constants/links";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { IoLink, IoMenu, IoQrCodeOutline } from "react-icons/io5";
+import logo from "@/app/assets/Logo.svg";
+import Image from "next/image";
 
 const TopNav = () => {
 	const route = usePathname();
@@ -38,7 +40,14 @@ const TopNav = () => {
 		<div className="bg-white p-3 border-b sticky top-0 ">
 			<Container>
 				<div className="flex text-sm justify-between items-center relative">
-					<div>Logo</div>
+					<div>
+						<Link href={"/"}>
+							<div className="flex gap-2 items-center">
+								<Image src={logo} alt="Blynk"></Image>
+								<p className="text-blue-700 font-semibold text-[24px]">Blynk</p>
+							</div>
+						</Link>
+					</div>
 					<div className="md:flex gap-4 hidden">
 						{links.map(({ path, label }, index) => {
 							const isActive = route === path;
