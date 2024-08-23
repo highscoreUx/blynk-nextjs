@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Hero = () => {
 	return (
-		<div className="mt-14">
+		<div className="my-14">
 			<Container>
 				<div className="flex flex-col items-center justify-center">
 					<h1 className="tracking-tight md:text-center md:max-w-[450px] font-extrabold">

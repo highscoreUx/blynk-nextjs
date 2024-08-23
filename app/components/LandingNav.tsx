@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const LandingNav = () => {
 	return (
-		<div className="border-b p-4">
+		<div className="border-b p-4 sticky top-0 bg-white">
 			<Container>
 				<Link href={"/"}>
 					<div className="flex gap-2 items-center">
