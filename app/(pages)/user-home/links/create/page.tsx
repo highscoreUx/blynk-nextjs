@@ -11,9 +11,7 @@ const page = () => {
 				</p>
 			</div>
 			<div className="mt-8">
-				<form>
-					<InputComponent />
-				</form>
+				<InputComponent />
 			</div>
 		</div>
 	);
