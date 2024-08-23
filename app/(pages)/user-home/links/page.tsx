@@ -3,6 +3,7 @@ import React from "react";
 import { FiCalendar } from "react-icons/fi";
 import LinkComponent from "./LinkComponent";
 import Link from "next/link";
+import { IoLink } from "react-icons/io5";
 
 const supabase = createClient();
 
@@ -65,6 +66,7 @@ const page = () => {
 					) : (
 						<div>
 							<div className="flex flex-col items-center justify-center mt-14 min-h-[30vh] gap-2">
+								<IoLink size={200} className="text-gray-400" />
 								<h2>You don't have any Link yet</h2>
 								<p>Please upload a link to manage your links</p>
 								<Link

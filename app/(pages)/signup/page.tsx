@@ -4,6 +4,7 @@ import Validator from "../../components/Validator";
 import { FcGoogle } from "react-icons/fc";
 import logo from "@/app/assets/Logo.svg";
 import Image from "next/image";
+import background from "@/app/assets/24089.jpg";
 
 export default function LoginPage() {
 	return (
@@ -81,7 +82,13 @@ export default function LoginPage() {
 						</p>
 					</div>
 				</div>
-				<div className="bg-blue-100 w-[40%] hidden md:block">Image</div>
+				<div className="bg-blue-700 w-[40%] hidden md:block">
+					<Image
+						src={background}
+						alt=""
+						className="h-full w-full object-cover object-bottom mix-blend-multiply"
+					/>
+				</div>
 			</div>
 		</main>
 	);

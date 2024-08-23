@@ -41,7 +41,7 @@ const TopNav = () => {
 			<Container>
 				<div className="flex text-sm justify-between items-center relative">
 					<div>
-						<Link href={"/"}>
+						<Link href={"/user-home"}>
 							<div className="flex gap-2 items-center">
 								<Image src={logo} alt="Blynk"></Image>
 								<p className="text-blue-700 font-semibold text-[24px]">Blynk</p>

@@ -5,6 +5,7 @@ import InputComponnent from "./InputComponnent";
 import { Metadata } from "next";
 import logo from "@/app/assets/Logo.svg";
 import Image from "next/image";
+import background from "@/app/assets/4210.jpg";
 
 export const metadata: Metadata = {
 	title: "Login",
@@ -85,7 +86,13 @@ export default function LoginPage() {
 						</p>
 					</div>
 				</div>
-				<div className="bg-blue-100 w-[40%] hidden md:block">Image</div>
+				<div className="bg-blue-700 w-[40%] hidden md:block">
+					<Image
+						src={background}
+						alt=""
+						className="h-full w-full object-cover object-bottom mix-blend-multiply"
+					/>
+				</div>
 			</div>
 		</main>
 	);

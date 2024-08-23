@@ -4,6 +4,10 @@ import { FiCalendar } from "react-icons/fi";
 import LinkComponent from "./LinkComponent";
 import Link from "next/link";
 
+import Image from "next/image";
+import { IoIosQrScanner, IoMdQrScanner } from "react-icons/io";
+import { IoQrCodeSharp } from "react-icons/io5";
+
 const supabase = createClient();
 
 interface links {
@@ -71,6 +75,13 @@ const page = () => {
 					) : (
 						<div>
 							<div className="flex flex-col items-center justify-center mt-14 min-h-[30vh] gap-2">
+								<div className="relative text-gray-400">
+									<IoMdQrScanner size={200} />
+									<IoQrCodeSharp
+										size={100}
+										className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
+									/>
+								</div>
 								<h2>You have not generated any QR Code yet</h2>
 								<p>Please generate a QR code to manage your codes</p>
 								<Link
