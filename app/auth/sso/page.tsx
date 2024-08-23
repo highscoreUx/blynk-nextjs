@@ -1,9 +1,22 @@
 import Link from "next/link";
 import { signInWithEmail } from "./actions";
+import logo from "@/app/assets/Logo.svg";
+import Image from "next/image";
+import Container from "@/app/components/Container";
 
 export default function LoginPage() {
 	return (
 		<main className="h-screen bg-white">
+			<div className="border-b p-4">
+				<Container>
+					<Link href={"/"}>
+						<div className="flex gap-2 items-center">
+							<Image src={logo} alt="Blynk"></Image>
+							<p className="text-blue-700 font-semibold text-[24px]">Blynk</p>
+						</div>
+					</Link>
+				</Container>
+			</div>
 			<div className="flex flex-col md:flex-row   gap-6 pt-10">
 				<div className="flex items-center flex-1 justify-center flex-col mx-4 md:mx-6">
 					<div className="md:w-[400px]">

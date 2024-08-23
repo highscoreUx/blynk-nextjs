@@ -2,11 +2,29 @@ import Link from "next/link";
 import { googleSignUp, signup } from "./actions";
 import Validator from "../../components/Validator";
 import { FcGoogle } from "react-icons/fc";
+import logo from "@/app/assets/Logo.svg";
+import Image from "next/image";
 
 export default function LoginPage() {
 	return (
 		<main>
-			<div className="flex flex-col md:flex-row  h-screen gap-6 bg-white">
+			<div className="md:hidden  self-start p-4 border-b sticky top-0 mb-14">
+				<Link href={"/"}>
+					<div className="flex gap-2 items-center">
+						<Image src={logo} alt="Blynk"></Image>
+						<p className="text-blue-700 font-semibold text-[24px]">Blynk</p>
+					</div>
+				</Link>
+			</div>
+			<div className="flex flex-col md:flex-row  md:h-screen gap-6 bg-white">
+				<div className="absolute hidden md:block top-6 left-6">
+					<Link href={"/"}>
+						<div className="flex gap-2 items-center">
+							<Image src={logo} alt="Blynk"></Image>
+							<p className="text-blue-700 font-semibold text-[24px]">Blynk</p>
+						</div>
+					</Link>
+				</div>
 				<div className="flex items-center flex-1 justify-center flex-col mx-4 md:mx-6">
 					<div className="md:w-[400px]">
 						<h2>Create your account</h2>
