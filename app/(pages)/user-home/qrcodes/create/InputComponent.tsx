@@ -146,7 +146,7 @@ const InputComponent = () => {
 											toast(message);
 											setTitle("");
 											setRedirectUrl("");
-											router.push("/user-home/links");
+											router.push("/user-home/qrcodes");
 										}
 									} catch (error) {
 									} finally {

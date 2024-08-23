@@ -11,12 +11,12 @@ const page = () => {
 			</div>
 			<div className="flex flex-col mt-4 md:flex-row [&>*]:p-4 md:[&>*]:p-16 gap-4 md:gap-6 [&>*]:bg-white [&>*]:rounded-lg md:[&>*]:flex md:[&>*]:flex-col md:[&>*]:flex-1 md:[&>*]:justify-center [&>*>p]:text-sm md:mt-6 [&>*]:shadow-lg [&>*]:shadow-blue-700/5 [&>*>h3]:md:mt-2">
 				<Link href={"/user-home/links/create"}>
-					<IoLink size={56} className="hidden md:block" />
+					<IoLink size={56} className="hidden md:block text-blue-700" />
 					<h3>Create a Short Link</h3>
 					<p>Shorten your long url with sharable links from Blynk</p>
 				</Link>
 				<Link href={"/user-home/qrcodes/create"}>
-					<IoQrCode size={56} className="hidden md:block" />
+					<IoQrCode size={56} className="hidden md:block text-blue-700" />
 					<h3>Generate a QR code</h3>
 					<p>Quick scans are very possible with Blynk</p>
 				</Link>
