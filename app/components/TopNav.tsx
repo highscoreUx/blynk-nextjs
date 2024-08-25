@@ -37,7 +37,7 @@ const TopNav = () => {
 		};
 	}, [isVisible, router]);
 	return (
-		<div className="bg-white p-3 border-b sticky top-0 ">
+		<div className="bg-white p-3 border-b sticky top-0 z-50">
 			<Container>
 				<div className="flex text-sm justify-between items-center relative">
 					<div>
