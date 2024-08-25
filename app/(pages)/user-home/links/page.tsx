@@ -1,7 +1,6 @@
-import { createClient } from "@/utils/supabase/client";
-import { createClient as clients } from "@/utils/supabase/server";
+import { createClient } from "@/utils/supabase/server";
 import React from "react";
-import { FiCalendar } from "react-icons/fi";
+
 import LinkComponent from "./LinkComponent";
 import Link from "next/link";
 import { IoLink } from "react-icons/io5";
@@ -18,43 +17,42 @@ interface links {
 	visitCount: number;
 }
 
-const getUser = async () => {
-	const supabase = clients();
-	try {
-		const {
-			data: { user },
-		} = await supabase.auth.getUser();
-		return user?.id;
-	} catch (error) {}
-};
+const page = async () => {
+	const getUser = async () => {
+		const supabase = createClient();
+		try {
+			const {
+				data: { user },
+			} = await supabase.auth.getUser();
 
-//@ts-ignore
-const user = await getUser();
+			return user?.id;
+		} catch (error) {}
+	};
 
-const getLink = async (user: string) => {
-	const supabase = createClient();
-	let { data, error } = await supabase
-		.from("url")
-		.select("*")
-		.eq("userid", user);
+	const user = await getUser();
 
-	if (error) {
-		console.log(error);
-		return error;
-	}
+	const getLink = async (user: string) => {
+		const supabase = createClient();
+		let { data, error } = await supabase
+			.from("url")
+			.select("*")
+			.eq("userid", user);
 
-	return data;
-};
+		if (error) {
+			console.log(error);
+			return error;
+		}
 
-//@ts-ignore
-const links = await getLink(user!);
+		return data;
+	};
 
-const page = () => {
+	const links = await getLink(user!);
+
 	return (
 		<div className="lg:w-[700px] md:mx-6 mx-4 lg:mx-auto">
 			{
 				//@ts-ignore
-				links.length > 0 && (
+				links?.length > 0 && (
 					<div>
 						<h2>Your Blynks</h2>
 						<p className="text-sm mt-1">Check out links you've shorten</p>
