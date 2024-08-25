@@ -8,8 +8,6 @@ import Image from "next/image";
 import { IoIosQrScanner, IoMdQrScanner } from "react-icons/io";
 import { IoQrCodeSharp } from "react-icons/io5";
 
-const supabase = createClient();
-
 interface links {
 	id: number;
 	created_at: string;
@@ -28,6 +26,7 @@ interface links {
 }
 
 const getUser = async () => {
+	const supabase = createClient();
 	try {
 		const {
 			data: { user },
@@ -40,6 +39,7 @@ const getUser = async () => {
 const user = await getUser();
 
 const getLink = async (user: string) => {
+	const supabase = createClient();
 	let { data, error } = await supabase
 		.from("url")
 		.select("*")
