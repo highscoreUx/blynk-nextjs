@@ -1,4 +1,5 @@
 import { createClient } from "@/utils/supabase/client";
+import { createClient as clients } from "@/utils/supabase/server";
 import React from "react";
 import { FiCalendar } from "react-icons/fi";
 import LinkComponent from "./LinkComponent";
@@ -18,7 +19,7 @@ interface links {
 }
 
 const getUser = async () => {
-	const supabase = createClient();
+	const supabase = clients();
 	try {
 		const {
 			data: { user },
@@ -37,7 +38,10 @@ const getLink = async (user: string) => {
 		.select("*")
 		.eq("userid", user);
 
-	if (error) return error;
+	if (error) {
+		console.log(error);
+		return error;
+	}
 
 	return data;
 };
