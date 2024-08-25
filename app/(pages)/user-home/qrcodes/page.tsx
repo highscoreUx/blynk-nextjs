@@ -1,4 +1,4 @@
-import { createClient } from "@/utils/supabase/client";
+import { createClient } from "@/utils/supabase/server";
 import React from "react";
 import { FiCalendar } from "react-icons/fi";
 import LinkComponent from "./LinkComponent";
@@ -25,36 +25,33 @@ interface links {
 	};
 }
 
-const getUser = async () => {
-	const supabase = createClient();
-	try {
-		const {
-			data: { user },
-		} = await supabase.auth.getUser();
-		return user?.id;
-	} catch (error) {}
-};
+const page = async () => {
+	const getUser = async () => {
+		const supabase = createClient();
+		try {
+			const {
+				data: { user },
+			} = await supabase.auth.getUser();
+			return user?.id;
+		} catch (error) {}
+	};
 
-//@ts-ignore
-const user = await getUser();
+	const user = await getUser();
 
-const getLink = async (user: string) => {
-	const supabase = createClient();
-	let { data, error } = await supabase
-		.from("url")
-		.select("*")
-		.eq("userid", user)
-		.not("qrcode", "is", null);
+	const getLink = async (user: string) => {
+		const supabase = createClient();
+		let { data, error } = await supabase
+			.from("url")
+			.select("*")
+			.eq("userid", user)
+			.not("qrcode", "is", null);
 
-	if (error) return error;
+		if (error) return error;
 
-	return data;
-};
+		return data;
+	};
 
-//@ts-ignore
-const links = await getLink(user!);
-
-const page = () => {
+	const links = await getLink(user!);
 	return (
 		<div className="lg:w-[700px] mx-4 md:mx-6 lg:mx-auto ">
 			{
