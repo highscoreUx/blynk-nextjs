@@ -1,4 +1,4 @@
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/utils/supabase/client";
 import React from "react";
 import { FiCalendar } from "react-icons/fi";
 import LinkComponent from "./LinkComponent";
