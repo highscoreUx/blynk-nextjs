@@ -20,6 +20,7 @@ const Features = () => {
 						</div>
 						<div>
 							<Image
+								placeholder="blur"
 								src={welcome}
 								alt="Quick Actions"
 								unoptimized
@@ -38,6 +39,7 @@ const Features = () => {
 						<div>
 							<Image
 								src={createQR}
+								placeholder="blur"
 								alt="customize QR"
 								unoptimized
 								className="h-[500px] lg:w-[500px] object-cover rounded-lg"
@@ -55,6 +57,7 @@ const Features = () => {
 						</div>
 						<div>
 							<Image
+								placeholder="blur"
 								src={yourQR}
 								alt="Manage QR"
 								unoptimized

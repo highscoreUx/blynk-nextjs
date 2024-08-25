@@ -17,7 +17,7 @@ export default function LoginPage() {
 			<div className="md:hidden  self-start p-4 border-b sticky top-0 mb-14">
 				<Link href={"/"}>
 					<div className="flex gap-2 items-center">
-						<Image src={logo} alt="Blynk"></Image>
+						<Image src={logo} alt="Blynk" placeholder="blur"></Image>
 						<p className="text-blue-700 font-semibold text-[24px]">Blynk</p>
 					</div>
 				</Link>
@@ -26,7 +26,7 @@ export default function LoginPage() {
 				<div className="absolute hidden md:block top-6 left-6">
 					<Link href={"/"}>
 						<div className="flex gap-2 items-center">
-							<Image src={logo} alt="Blynk"></Image>
+							<Image src={logo} alt="Blynk" placeholder="blur"></Image>
 							<p className="text-blue-700 font-semibold text-[24px]">Blynk</p>
 						</div>
 					</Link>
