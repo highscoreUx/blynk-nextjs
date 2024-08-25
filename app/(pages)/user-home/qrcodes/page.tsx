@@ -82,8 +82,12 @@ const page = () => {
 										className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
 									/>
 								</div>
-								<h2>You have not generated any QR Code yet</h2>
-								<p>Please generate a QR code to manage your codes</p>
+								<h2 className="text-center">
+									You have not generated any QR Code yet
+								</h2>
+								<p className="text-center">
+									Please generate a QR code to manage your codes
+								</p>
 								<Link
 									href={"qrcodes/create"}
 									className="p-3 bg-blue-700 text-white rounded-lg mt-4"

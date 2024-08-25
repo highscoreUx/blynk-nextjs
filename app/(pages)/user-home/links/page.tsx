@@ -67,8 +67,10 @@ const page = () => {
 						<div>
 							<div className="flex flex-col items-center justify-center mt-14 min-h-[30vh] gap-2">
 								<IoLink size={200} className="text-gray-400" />
-								<h2>You don't have any Link yet</h2>
-								<p>Please upload a link to manage your links</p>
+								<h2 className="text-center">You don't have any Link yet</h2>
+								<p className="text-center">
+									Please upload a link to manage your links
+								</p>
 								<Link
 									href={"links/create"}
 									className="p-3 bg-blue-700 text-white rounded-lg mt-4"
