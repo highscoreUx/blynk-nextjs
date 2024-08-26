@@ -39,9 +39,13 @@ export async function updateSession(request: NextRequest) {
 
 	const isShortRoute = request.nextUrl.pathname.match(/^\/[a-zA-Z0-9_-]+$/);
 	const isUserHomeRoute = request.nextUrl.pathname === "/user-home";
+	const isPrivacyPolicy = request.nextUrl.pathname === "/privacy-policy";
+	const isTermsOfService = request.nextUrl.pathname === "/terms-of-service";
 
 	if (
 		!user &&
+		!isTermsOfService &&
+		!isPrivacyPolicy &&
 		(isUserHomeRoute || !isShortRoute) &&
 		!request.nextUrl.pathname.startsWith("/login") &&
 		!request.nextUrl.pathname.startsWith("/404") &&

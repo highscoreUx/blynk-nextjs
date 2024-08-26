@@ -12,6 +12,8 @@ const LandingNav = async () => {
 		data: { user },
 	} = await supabase.auth.getUser();
 
+	const navs = [{ label: "Features", link: "#features" }];
+
 	return (
 		<div className="border-b p-4 sticky top-0 bg-white z-50">
 			<Container>
@@ -23,6 +25,19 @@ const LandingNav = async () => {
 								<p className="text-blue-700 font-semibold text-[24px]">Blynk</p>
 							</div>
 						</Link>
+					</div>
+					<div className="flex gap-4 items-center">
+						{navs.map(({ label, link }, index) => {
+							return (
+								<Link
+									key={index}
+									href={link}
+									className="text-sm text-gray-500 hover:text-blue-700"
+								>
+									{label}
+								</Link>
+							);
+						})}
 					</div>
 					<div>
 						{user ? (

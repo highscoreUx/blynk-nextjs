@@ -7,7 +7,7 @@ import yourQR from "@/app/assets/yourQR.png";
 
 const Features = () => {
 	return (
-		<div className="bg-gray-100 py-14">
+		<div className="bg-gray-100 py-14 scroll-m-14" id="features">
 			<Container>
 				<div className="flex flex-col gap-12">
 					<div className="flex flex-col-reverse lg:flex-row [&>*]:flex-1 lg:items-center items-start gap-2 lg:gap-28">

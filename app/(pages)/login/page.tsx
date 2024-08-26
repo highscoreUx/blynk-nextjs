@@ -71,12 +71,12 @@ export default function LoginPage() {
 						<p className="mt-6 text-sm">
 							By logging in with an account, you agree to Blynk's{" "}
 							<span>
-								<Link href={"/termsofservice"} className="underline">
+								<Link href={"/terms-of-service"} className="underline">
 									Terms of Service
 								</Link>
 							</span>
 							,{" "}
-							<Link href={"/privacypolicy"} className="underline">
+							<Link href={"/privacy-policy"} className="underline">
 								Privacy Policy
 							</Link>{" "}
 							and{" "}
