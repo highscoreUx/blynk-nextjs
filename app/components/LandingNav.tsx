@@ -4,6 +4,7 @@ import Link from "next/link";
 import logo from "@/app/assets/Logo.svg";
 import Image from "next/image";
 import { createClient } from "@/utils/supabase/server";
+import LogoutBtn from "./LogoutBtn";
 
 const LandingNav = async () => {
 	const supabase = createClient();
@@ -40,9 +41,7 @@ const LandingNav = async () => {
 							</Link>
 						)}
 						{user ? (
-							<button className="bg-blue-100 text-blue-950 py-2 px-4 rounded-lg  text-sm focus:outline-blue-300/30 focus:outline-2 hover:scale-[1.05]">
-								Logout
-							</button>
+							<LogoutBtn />
 						) : (
 							<Link
 								href={"/login"}
