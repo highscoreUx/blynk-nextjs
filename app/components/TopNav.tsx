@@ -8,6 +8,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { IoLink, IoMenu, IoQrCodeOutline } from "react-icons/io5";
 import logo from "@/app/assets/Logo.svg";
 import Image from "next/image";
+import LogoutBtn from "./LogoutBtn";
 
 const TopNav = () => {
 	const route = usePathname();
@@ -87,6 +88,7 @@ const TopNav = () => {
 							>
 								Create New
 							</button>
+							<LogoutBtn />
 							{isVisible && (
 								<div className="w-[200px] flex flex-col gap-2 border shadow-md p-2 rounded absolute bg-white right-0 mt-2">
 									<Link
@@ -133,13 +135,14 @@ const TopNav = () => {
 					</div>
 					<div className="relative hidden md:block">
 						<button
-							className="p-2 bg-blue-700 text-white rounded-lg shadow-xl shadow-blue-500/40 hover:shadow-md hover:shadow-blue-500/40 "
+							className="p-2 bg-blue-700 text-white rounded-lg shadow-xl shadow-blue-500/40 hover:shadow-md hover:shadow-blue-500/40 mr-4"
 							onClick={() => {
 								setIsVisible(!isVisible);
 							}}
 						>
 							Create New
 						</button>
+						<LogoutBtn />
 						{isVisible && (
 							<div className="w-[200px] flex flex-col gap-2 border shadow-md p-2 rounded absolute bg-white right-0 mt-2">
 								<Link
