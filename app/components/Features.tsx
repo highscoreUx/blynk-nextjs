@@ -24,7 +24,7 @@ const Features = () => {
 								src={welcome}
 								alt="Quick Actions"
 								unoptimized
-								className="h-[500px] lg:w-[500px] object-cover rounded-lg"
+								className="aspect-square object-cover rounded-lg"
 							/>
 						</div>
 					</div>
@@ -42,7 +42,7 @@ const Features = () => {
 								placeholder="blur"
 								alt="customize QR"
 								unoptimized
-								className="h-[500px] lg:w-[500px] object-cover rounded-lg"
+								className="aspect-square object-cover rounded-lg"
 							/>
 						</div>
 					</div>
@@ -61,7 +61,7 @@ const Features = () => {
 								src={yourQR}
 								alt="Manage QR"
 								unoptimized
-								className="h-[500px] lg:w-[500px] object-cover rounded-lg"
+								className="aspect-square object-cover rounded-lg"
 							/>
 						</div>
 					</div>
