@@ -21,7 +21,7 @@ const Hero = async () => {
 						Transform your lengthy URLs into sleek, shareable links with Blynk —
 						your one-stop tool for quick and effortless link shortening!
 					</p>
-					<div className="flex flex-col md:flex-row md:gap-6 [&>*]:flex-1 [&>*]:flex [&>*]:items-center [&>*]:justify-center w-full md:w-[50%] lg:w-[37%] mt-4">
+					<div className="flex flex-col md:flex-row md:gap-6 [&>*]:flex-1 [&>*]:flex [&>*]:items-center [&>*]:justify-center w-full md:w-[400px] lg:w-[37%] mt-4">
 						{user ? (
 							<Link
 								href={"/user-home"}
