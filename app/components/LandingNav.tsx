@@ -26,7 +26,7 @@ const LandingNav = async () => {
 							</div>
 						</Link>
 					</div>
-					<div className="flex gap-4 items-center">
+					<div className="md:flex gap-4 items-center hidden">
 						{navs.map(({ label, link }, index) => {
 							return (
 								<Link
@@ -39,7 +39,7 @@ const LandingNav = async () => {
 							);
 						})}
 					</div>
-					<div>
+					<div className="hidden md:block">
 						{user ? (
 							<Link
 								href={"/user-home"}

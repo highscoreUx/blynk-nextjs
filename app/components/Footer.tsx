@@ -32,7 +32,7 @@ const Footer = () => {
 							href={"/temrs-of-service"}
 							className="text-gray-400 hover:text-gray-200"
 						>
-							Terms-of-service
+							Terms of service
 						</Link>
 					</div>
 					<div className="flex flex-col gap-1">
