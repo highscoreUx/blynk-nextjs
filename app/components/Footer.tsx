@@ -20,16 +20,19 @@ const Footer = () => {
 							<p className="text-gray-300 font-bold">Company</p>
 						</div>
 						<Link
+							href={"#features"}
+							className="text-gray-400 hover:text-gray-200"
+						>
+							Features
+						</Link>
+						<Link
 							href={"/privacy-policy"}
 							className="text-gray-400 hover:text-gray-200"
 						>
 							Privacy Policy
 						</Link>
-						<Link href={""} className="text-gray-400 hover:text-gray-200">
-							Cookie Policy
-						</Link>
 						<Link
-							href={"/temrs-of-service"}
+							href={"/terms-of-service"}
 							className="text-gray-400 hover:text-gray-200"
 						>
 							Terms of service
